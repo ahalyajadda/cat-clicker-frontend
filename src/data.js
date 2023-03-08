@@ -1,0 +1,97 @@
+const data = {
+  catsDeatils: [
+    {
+      name: 'Boots',
+      visits: 2,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c1.jpg',
+      age: 'infant',
+    },
+    {
+      name: 'Tobby',
+      visits: 5,
+      nicnames: ['jasve'],
+      image: '/images/c2.jpg',
+      age: 'infant',
+    },
+    {
+      name: 'loona',
+      visits: 10,
+      nicnames: ['chinnni'],
+      image: '/images/c3.jpg',
+      age: 'middle age',
+    },
+    {
+      name: 'tiger',
+      visits: 50,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c4.jpg',
+      age: 'old',
+    },
+    {
+      name: 'Boots',
+      visits: 2,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c4.jpg',
+      age: 'infant',
+    },
+    {
+      name: 'Tobby',
+      visits: 5,
+      nicnames: ['jasve'],
+      image: '/images/c6.jpg',
+      age: 'infant',
+    },
+    {
+      name: 'loona',
+      visits: 10,
+      nicnames: ['chinnni'],
+      image: '/images/c5.jpg',
+      age: 'middle age',
+    },
+    {
+      name: 'tiger',
+      visits: 50,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c1.jpg',
+      age: 'old',
+    },
+    {
+      name: 'tiger',
+      visits: 50,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c4.jpg',
+      age: 'old',
+    },
+    {
+      name: 'Boots',
+      visits: 2,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c4.jpg',
+      age: 'infant',
+    },
+    {
+      name: 'Tobby',
+      visits: 5,
+      nicnames: ['jasve'],
+      image: '/images/c6.jpg',
+      age: 'infant',
+    },
+    {
+      name: 'loona',
+      visits: 10,
+      nicnames: ['chinnni'],
+      image: '/images/c5.jpg',
+      age: 'middle age',
+    },
+    {
+      name: 'tiger',
+      visits: 50,
+      nicnames: ['chinnni', 'jasve'],
+      image: '/images/c1.jpg',
+      age: 'old',
+    },
+  ],
+};
+
+export default data;

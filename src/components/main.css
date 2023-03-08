@@ -1,0 +1,179 @@
+.main-page {
+  margin: 0 40px;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+}
+.left {
+  width: 20%;
+}
+
+.left-main {
+  width: 100%;
+  border: 1px solid #808080;
+  border-radius: 5px;
+}
+
+.left-data {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  color: gray;
+  cursor: pointer;
+}
+
+.left-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.visits {
+  margin-left: 20px;
+  background-color: gray;
+  padding: 2px 8px;
+  border-radius: 40%;
+  color: white;
+  font-size: 12px;
+}
+.mid-form {
+  width: 80%;
+  margin-top: 10px;
+  display: flex;
+}
+.middle {
+  width: 60%;
+  margin-bottom: 10px;
+}
+
+.cat-info {
+  width: 80%;
+  margin: auto;
+}
+
+.right {
+  width: 40%;
+}
+.right-main {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.right-data {
+  margin: 10px;
+}
+form {
+  margin-top: 20px;
+}
+form input {
+  margin: 8px 0;
+  outline: none;
+  padding: 5px 5px;
+  width: 90%;
+}
+button {
+  cursor: pointer;
+  padding: 5px 10px;
+
+  color: white;
+  outline: none;
+  border: none;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+.image-gallery {
+  width: 100%;
+}
+p {
+  word-wrap: break-word;
+}
+.cat-image {
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(87, 86, 86);
+}
+.cat-details {
+  width: 200px;
+  margin: 10px 10px;
+}
+
+.cat-card {
+  border: 1px solid gray;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+.content {
+  margin: 10px 10px;
+}
+.content h3 {
+  margin: 5px 0;
+}
+.cat-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+.cat-card a {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: blue;
+}
+
+@media only screen and ((min-width: 521px) and (max-width: 767px)) {
+  .main {
+    flex-direction: column;
+  }
+  .mid-form {
+    width: 100%;
+  }
+}
+@media only screen and ((min-width: 400px) and (max-width: 520px)) {
+  .main {
+    flex-direction: column;
+  }
+  .mid-form {
+    width: 100%;
+    flex-direction: column;
+  }
+  .middle {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  .cat-info {
+    width: 90%;
+  }
+  .cat-image {
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .main-page {
+    margin: 0 10px;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .mid-form {
+    width: 100%;
+    flex-direction: column;
+  }
+  .middle {
+    width: 100%;
+  }
+  .cat-info {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+  }
+  .cat-image {
+    justify-content: center;
+    align-items: center;
+  }
+}
