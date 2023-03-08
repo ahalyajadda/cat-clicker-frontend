@@ -78,11 +78,11 @@ function Main() {
         }
       );
       setNewform(false);
-      await console.log(data);
-      await setSelected(data._id);
-      await getCatsInfo();
-      await updateCenterData(data);
-      await fetchCatDetails(data._id);
+
+      setSelected(data._id);
+      getCatsInfo();
+      updateCenterData(data);
+      fetchCatDetails(data._id);
     } catch (err) {
       console.log(err);
     }
