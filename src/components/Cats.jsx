@@ -7,7 +7,7 @@ function Cats(props) {
         <h3>{props.item.name}</h3>
         <p>No of times clicked:{props.item.visits}</p>
       </div>
-      <img src={props.item.catImage} alt="image" />
+      {props.item.catImage ? <img src={props.item.catImage} alt="image" /> : ''}
       <div>
         {props.middle === 'yes' ? (
           <div className="content">

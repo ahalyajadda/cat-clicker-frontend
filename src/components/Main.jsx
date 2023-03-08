@@ -28,7 +28,7 @@ function Main() {
   const getCatsInfo = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:4004/cats/fetchCatsinfo'
+        'https://cats-backend-d6ep.onrender.com/cats/fetchCatsinfo'
       );
       await setcatsInfo(response.data);
     } catch (err) {
@@ -43,15 +43,41 @@ function Main() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     catAge = '';
+
+    if (catClicks >= 0 && catClicks <= 5) {
+      catAge = 'infant';
+      console.log(1);
+    } else if (catClicks >= 6 && catClicks <= 12) {
+      catAge = 'child';
+      console.log(2);
+    } else if (catClicks >= 13 && catClicks <= 25) {
+      catAge = 'young';
+      console.log(3);
+    } else if (catClicks >= 26 && catClicks <= 40) {
+      catAge = 'middle-age';
+      console.log(4);
+    } else if (catClicks >= 41 && catClicks <= 60) {
+      catAge = 'old';
+      console.log(5);
+    } else if (catClicks >= 60) {
+      catAge = 'very old';
+      console.log(6);
+    }
     try {
-      const { data } = await axios.post('http://localhost:4004/cats', {
-        catName,
-        catImage,
-        catClicks,
-        catNicknames,
-        catAge,
-      });
-      emptyInfo();
+      if (catName == '' || catImage == '') {
+        return alert('Fill all the fields');
+      }
+      const { data } = await axios.post(
+        'https://cats-backend-d6ep.onrender.com/cats',
+        {
+          catName,
+          catImage,
+          catClicks,
+          catNicknames,
+          catAge,
+        }
+      );
+      setNewform(false);
       await console.log(data);
       await setSelected(data._id);
       await getCatsInfo();
@@ -77,7 +103,7 @@ function Main() {
     bodyFormData.append('file', file);
     try {
       const { data } = await axios.post(
-        'http://localhost:4004/upload',
+        'https://cats-backend-d6ep.onrender.com/upload',
         bodyFormData
       );
       await setCatImage(data.secure_url);
@@ -90,7 +116,9 @@ function Main() {
   //fetching data based on id.
   const fetchCatDetails = async (val) => {
     try {
-      const { data } = await axios.get(`http://localhost:4004/cats/${val}`);
+      const { data } = await axios.get(
+        `https://cats-backend-d6ep.onrender.com/cats/${val}`
+      );
 
       setCatName(data.name);
       setCatClicks(data.visits);
@@ -104,9 +132,11 @@ function Main() {
   //updating the existing cat data.
   const updateSubmit = async (e) => {
     e.preventDefault();
+    console.log(catName, catImage, catClicks, catNicknames);
+
     try {
       const { data } = await axios.put(
-        `http://localhost:4004/cats/${selected}`,
+        `https://cats-backend-d6ep.onrender.com/cats/${selected}`,
         {
           catName,
           catImage,
@@ -136,10 +166,13 @@ function Main() {
   //increasing count.
   const updateCount = async (item, age) => {
     try {
-      await axios.patch(`http://localhost:4004/cats/updateCount/${item._id}`, {
-        visits: item.visits,
-        catAge: age,
-      });
+      await axios.patch(
+        `https://cats-backend-d6ep.onrender.com/cats/updateCount/${item._id}`,
+        {
+          visits: item.visits,
+          catAge: age,
+        }
+      );
       getCatsInfo();
       fetchCatDetails(item._id);
     } catch (err) {
@@ -155,22 +188,16 @@ function Main() {
 
     if (clicks >= 0 && clicks <= 5) {
       age = 'infant';
-      console.log(1);
     } else if (clicks >= 6 && clicks <= 12) {
       age = 'child';
-      console.log(2);
     } else if (clicks >= 13 && clicks <= 25) {
       age = 'young';
-      console.log(3);
     } else if (clicks >= 26 && clicks <= 40) {
       age = 'middle-age';
-      console.log(4);
     } else if (clicks >= 41 && clicks <= 60) {
       age = 'old';
-      console.log(5);
     } else if (clicks >= 60) {
       age = 'very old';
-      console.log(6);
     }
     item.catAge = age;
     updateCount(item, age);
@@ -223,7 +250,7 @@ function Main() {
                                     item._id === selected ? 'white' : 'gray',
                                 }}
                               >
-                                <p>{item.name}</p>
+                                <p className="name">{item.name}</p>
                                 <p className="visits"> {item.visits}</p>
                               </div>
                             </Nav.Link>
@@ -274,6 +301,7 @@ function Main() {
                   <label>Cat Name</label>
                   <br />
                   <input
+                    required
                     type="text"
                     placeholder="Cat Name"
                     value={catName}
